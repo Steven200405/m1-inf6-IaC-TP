@@ -1,4 +1,4 @@
-resource "google_compute_address" "public_ip"{
+resource "google_compute_address" "static_ip"{
     name = "ipv4-address"
     region = var.region
 }
@@ -21,7 +21,7 @@ resource "google_compute_instance" "vm"{
   network_interface {
     subnetwork = google_compute_subnetwork.subnet.id
     access_config {
-      nat_ip = google_compute_address.public_ip.address
+      nat_ip = google_compute_address.static_ip.address
     }
   }
 }
