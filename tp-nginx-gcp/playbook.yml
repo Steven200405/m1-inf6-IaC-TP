@@ -1,0 +1,15 @@
+- name: Configurer le serveur web nginx
+  hosts: web
+  become: yes
+  tasks:
+    - name: Installer Nginx et MAJ Cache
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Démarrer le service Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
