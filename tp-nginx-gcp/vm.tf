@@ -8,6 +8,9 @@ resource "google_compute_instance" "vm"{
     machine_type = "e2-micro"
     zone = var.zone
 
+    tags = ["tp-gcp-ssh", "tp-gcp-web"]
+
+
     boot_disk {
       initialize_params {
         image = "debian-cloud/debian-12"
