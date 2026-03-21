@@ -1,5 +1,5 @@
 - name: Configurer le serveur web nginx
-  hosts: web
+  hosts: all
   become: yes
   tasks:
     - name: Installer Nginx et MAJ Cache
